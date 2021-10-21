@@ -1,0 +1,68 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main() 
+{
+    //declare variables
+    double balance, deposit,withdraw,exit;
+    int option;
+    char ulang = 'y';
+    
+    balance = 500000; //default amount
+    
+    do \
+    {
+        cout<<"\n\t*******************MENU*******************";
+        cout<<"\n\t*                                        *";
+        cout<<"\n\t*            1. Check Balance            *";
+        cout<<"\n\t*            2. Deposit                  *";
+        cout<<"\n\t*            3. Withdraw                 *";
+        cout<<"\n\t*            4. Exit                     *";
+        cout<<"\n\t*                                        *";
+        cout<<"\n\t******************************************";
+        cout<<"\n\t  Please choose an option:  ";
+        cin>>option;
+        
+        switch (option){
+
+            case 1: cout<< "\n\t Your Balance is: Rp. "<<balance <<endl;
+                     break;
+                     
+            case 2: cout<< "\n\t Amount you want to deposit: Rp. ";
+                    cin>>deposit;
+                    balance += deposit;
+                    cout<<"\n\t Current Balance: Rp. "<< balance <<endl;
+                    break;
+                    
+            case 3: cout<< "\n\t How much do you want to withdraw?: Rp. ";
+                    cin>> withdraw;
+                    
+                    if(balance < withdraw)
+                        cout<< "\n\t You do not have enough money in your account to withdraw"<<endl;
+                    else
+                       balance -= withdraw;
+                       
+                    cout<<"\n\t Current Balance: Rp. "<< balance <<endl;
+                    break;
+                    
+            case 4: ulang='n';
+                    break;
+                    
+            default: if (option != 5)
+                              cout<< "Invalid option. Please try again"<<endl;
+                    break;
+        }
+        
+    }while ((ulang!='n'));
+    cout<< "\n\t Thank You. See you again";
+    
+    
+    system("pause");
+    
+    return 0;
+    
+    }
